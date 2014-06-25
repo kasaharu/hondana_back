@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623122729) do
+ActiveRecord::Schema.define(version: 20140624143129) do
 
   create_table "bookrack_books", force: true do |t|
     t.integer  "bookrack_id"
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20140623122729) do
   add_index "books", ["name"], name: "index_books_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "password",    null: false
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "bookrack_id"
   end
 
   add_index "users", ["bookrack_id"], name: "index_users_on_bookrack_id", using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
