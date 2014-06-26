@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624143129) do
+ActiveRecord::Schema.define(version: 20140626115729) do
 
   create_table "bookrack_books", force: true do |t|
     t.integer  "bookrack_id"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20140624143129) do
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "bookracks", ["name"], name: "index_bookracks_on_name", unique: true, using: :btree
+  add_index "bookracks", ["user_id"], name: "index_bookracks_on_user_id", using: :btree
 
   create_table "books", force: true do |t|
     t.string   "name",       null: false
@@ -47,10 +49,8 @@ ActiveRecord::Schema.define(version: 20140624143129) do
     t.string   "encrypted_password", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "bookrack_id"
   end
 
-  add_index "users", ["bookrack_id"], name: "index_users_on_bookrack_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
