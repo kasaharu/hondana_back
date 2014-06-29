@@ -1,4 +1,7 @@
 class BookracksController < ApplicationController
+  before_filter :authenticate_user!
+
+
   # GET /bookracks
   def index
     @bookracks = Bookrack.all
@@ -23,10 +26,10 @@ class BookracksController < ApplicationController
   # POST /bookracks
   def create
     @bookrack = Bookrack.new(bookrack_params)
-    @bookrack.user_id = 1   # Dummy code (must modify when implement User model)
+    @bookrack.user_id = current_user.id
     respond_to do |format|
       if @bookrack.save
-        format.html { redirect_to @bookrack, notice: 'hoge' }
+        format.html { redirect_to @bookrack, notice: 'Created' }
 #        format.csv
 #        format.json
       else
