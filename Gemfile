@@ -45,4 +45,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'fuubar', '~> 2.0.0.rc1'
+  gem 'coveralls', :require => false
+  gem 'simplecov'
 end
