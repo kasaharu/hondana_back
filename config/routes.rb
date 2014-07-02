@@ -1,11 +1,32 @@
 Rails.application.routes.draw do
   resources :bookracks
+#  resources :books
 #  devise_for :users
   devise_for :users, :controllers => {
     :sessions      => 'users/sessions',
     :registrations => 'users/registrations'
   }
   root to: "bookracks#index"
+
+  get    'bookracks/:id/books'          => 'books#index'   , as: :books
+  post   'bookracks/:id/books'          => 'books#create'
+  get    'bookracks/:id/books/new'      => 'books#new'     , as: :new_book
+  get    'bookracks/:id/books/:id/edit' => 'books#edit'    , as: :edit_book
+  get    'bookracks/:id/books/:id'      => 'books#show'    , as: :book
+  patch  'bookracks/:id/books/:id'      => 'books#update'
+  put    'bookracks/:id/books/:id'      => 'books#update'
+  delete 'bookracks/:id/books/:id'      => 'books#destroy'
+
+
+#                   books GET    /books(.:format)               books#index
+#                         POST   /books(.:format)               books#create
+#                new_book GET    /books/new(.:format)           books#new
+#               edit_book GET    /books/:id/edit(.:format)      books#edit
+#                    book GET    /books/:id(.:format)           books#show
+#                         PATCH  /books/:id(.:format)           books#update
+#                         PUT    /books/:id(.:format)           books#update
+#                         DELETE /books/:id(.:format)           books#destroy
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
