@@ -5,6 +5,8 @@
   <%= @bookrack.name %>
 </p>
 
+<%= link_to 'New Book', new_book_path %>
+<%= link_to 'Book List', books_path %>
 
 <%= link_to 'Edit', edit_bookrack_path(@bookrack) %> |
 <%= link_to 'Back', bookracks_path %>
