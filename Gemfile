@@ -47,4 +47,6 @@ group :development, :test do
   gem 'fuubar', '~> 2.0.0.rc1'
   gem 'coveralls', :require => false
   gem 'simplecov'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
