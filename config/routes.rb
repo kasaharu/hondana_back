@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     :sessions      => 'users/sessions',
     :registrations => 'users/registrations'
   }
-  root to: "bookracks#index"
+
+  get    'top'                          => 'bookracks#top' , as: :top_bookrack
 
   get    'bookracks/:id/books'          => 'books#index'   , as: :books
   post   'bookracks/:id/books'          => 'books#create'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   put    'bookracks/:id/books/:id'      => 'books#update'
   delete 'bookracks/:id/books/:id'      => 'books#destroy'
 
+
+  root to: "bookracks#top"
 
 #                   books GET    /books(.:format)               books#index
 #                         POST   /books(.:format)               books#create

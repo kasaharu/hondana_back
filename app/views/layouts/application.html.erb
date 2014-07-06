@@ -18,16 +18,15 @@
 
   <body>
     <header class="navbar navbar-default" style="background:#2323FF;" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to 'Hondana', root_path, class: 'navbar-brand'%>
-        </div>
+      <div class="navbar-header">
+        <%= link_to 'Hondana', root_path, class: 'navbar-brand'%>
+        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'navbar-brand'%>
       </div>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= yield %>
+    <footer class="navbar navbar-default" style="background:#2323FF;" role="navigation">
+    </footer>
 
   </body>
 </html>

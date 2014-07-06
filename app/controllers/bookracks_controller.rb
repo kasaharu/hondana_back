@@ -2,6 +2,12 @@ class BookracksController < ApplicationController
   before_filter :authenticate_user!
 
 
+  # GET /bookracks/top
+  def top
+    user_id = current_user.id
+    @user = User.find(user_id)
+  end
+
   # GET /bookracks
   def index
     @bookracks = Bookrack.all

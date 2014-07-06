@@ -1,0 +1,15 @@
+<h2>Welcome to Hondana</h2>
+
+<table>
+  <tbody>
+    <%= 'login user : ' %>
+    <%= @user.email %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '本棚一覧 : Bookrack List', bookracks_path %>
+<br>
+<%= link_to 'ユーザ情報変更 : Edit user info', edit_user_registration_path %>
+
