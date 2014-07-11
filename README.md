@@ -4,3 +4,6 @@ hondana
 [![Coverage Status](https://coveralls.io/repos/kasaharu/hondana/badge.png)](https://coveralls.io/r/kasaharu/hondana)
 
 the bookrack application
+
+## License
+Copyright (c) 2014 Wataru KASAHARA
