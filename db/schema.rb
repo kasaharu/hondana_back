@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140702130203) do
 
-  create_table "bookrack_books", force: true do |t|
-    t.integer  "bookrack_id"
-    t.integer  "book_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "bookrack_books", ["book_id"], name: "index_bookrack_books_on_book_id", using: :btree
-  add_index "bookrack_books", ["bookrack_id"], name: "index_bookrack_books_on_bookrack_id", using: :btree
-
   create_table "bookracks", force: true do |t|
     t.string   "name",       null: false
     t.datetime "created_at"

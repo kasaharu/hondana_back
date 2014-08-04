@@ -1,12 +1,46 @@
+<h2><%= @bookrack.name %></h2>
 <p id="notice"><%= notice %></p>
+<%= link_to 'この本棚を削除 : Delete', @bookrack, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br>
+<%= link_to 'この本棚を編集 : Edit Bookrack name', edit_bookrack_path(@bookrack) %>
+<br>
+<%= '----------------------' %>
+<br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bookrack.name %>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <th><strong><%= 'Book Name' %></strong></th>
+      <th> &nbsp; </th>
+      <th><strong><%= 'Book Author' %></strong></th>
+    </tr>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td> &nbsp; </td>
+        <td><%= book.author %></td>
+        <td> &nbsp; </td>
+        <td><%= link_to 'Show', book %></td>
+        <td> &nbsp; </td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td> &nbsp; </td>
+        <td><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'New Book', new_book_path %>
-<%= link_to 'Book List', books_path %>
 
-<%= link_to 'Edit', edit_bookrack_path(@bookrack) %> |
-<%= link_to 'Back', bookracks_path %>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<%= link_to '本を追加　　　 : Add new Book', new_book_path %>
+<br>
+<%= link_to '本一覧　　　　 : Show Book List', books_path %>
+<br>
+<%= link_to '本棚一覧に戻る : Back', bookracks_path %>
+
