@@ -16,6 +16,7 @@ class BookracksController < ApplicationController
   # GET /bookracks/:id
   def show
     @bookrack = Bookrack.find(params[:id])
+    @books = Book.all
   end
 
   # GET /bookracks/new
