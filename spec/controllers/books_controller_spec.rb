@@ -15,6 +15,21 @@ RSpec.describe BooksController, :type => :controller do
     end
   end
 
+  describe 'GET #show' do
+    before do
+      user     = FactoryGirl.create(:user)
+      bookrack = FactoryGirl.create(:bookrack)
+      book     = FactoryGirl.create(:book, :bookrack_id => bookrack.id)
+      sign_in(user)
+      get :show, :id => book.id
+      p book
+    end
+
+    it 'valid status' do
+      expect(response.status).to eq(200)
+    end
+  end
+
   describe 'GET #new' do
     before do
       user     = FactoryGirl.create(:user)
