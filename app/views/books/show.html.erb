@@ -1,27 +1,48 @@
+<h2><%= @book.name %></h2>
 <p id="notice"><%= notice %></p>
+<%= '----------------------' %>
 
-<dl>
-  <dt>書籍名</dt>
-</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-<p>
-  <strong>Category:</strong>
-  <%= @book.category %>
-</p>
-<p>
-  <strong>Memo:</strong>
-  <%= @book.memo %>
-</p>
 
-<%= link_to 'New Book', new_book_path %>
+<table>
+  <tbody>
+      <tr>
+        <td><strong>Author</strong></td>
+        <td> &nbsp;:&nbsp; </td>
+        <td><%= @book.author %></td>
+        <td> &nbsp; </td>
+      </tr>
+      <tr>
+        <td><strong>Category</strong></td>
+        <td> &nbsp;:&nbsp; </td>
+        <td><%= @book.category %></td>
+        <td> &nbsp; </td>
+      </tr>
+      <tr>
+        <td><strong>Memo</strong></td>
+        <td> &nbsp;:&nbsp; </td>
+        <td><%= @book.memo %></td>
+        <td> &nbsp; </td>
+      </tr>
+      <tr>
+        <td><strong>Bookrack</strong></td>
+        <td> &nbsp;:&nbsp; </td>
+        <td><%= @bookrack.name %></td>
+        <td> &nbsp; </td>
+      </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<%= link_to 'Add new Book', new_book_path %>
+<br>
+<%= link_to 'Edit this book info', edit_book_path(@book) %>
+<br>
+<%= link_to 'Back to this bookrack', bookrack_path(@bookrack) %>

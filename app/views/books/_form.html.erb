@@ -27,6 +27,11 @@
     <%= f.label :memo %><br>
     <input id="book_memo" name="book[memo]" size="50" type="text" />
   </div>
+  <div class="field">
+    <%= f.label :bookrack %><br>
+    <%= f.collection_select :bookrack_id, Bookrack.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

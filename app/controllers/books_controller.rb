@@ -2,31 +2,32 @@ class BooksController < ApplicationController
   before_filter :authenticate_user!
 
 
-  # GET /bookracks/:id/books
+  # GET /books
   def index
-    @books = Book.all
+    @books     = Book.all
+    @bookracks = Bookrack.all
   end
 
-  # GET /bookracks/:id/books/:id
+  # GET /books/:id
   def show
-    @book = Book.find(params[:id])
+    @book     = Book.find(params[:id])
+    @bookrack = Bookrack.find(@book.bookrack_id)
   end
 
-  # GET /bookracks/:id/books/new
+  # GET /books/new
   def new
     @book = Book.new
   end
 
-  # GET /bookracks/:id/books/:id/edit
+  # GET /books/:id/edit
   def edit
     @book = Book.find(params[:id])
   end
 
 
-  # POST /bookracks/:id/books
+  # POST /books
   def create
     @book = Book.new(book_params)
-    @book.bookrack_id = params[:id]
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Created' }
@@ -39,7 +40,7 @@ class BooksController < ApplicationController
   end
 
 
-  # PATCH/PUT /bookracks/:id/books/:id
+  # PATCH/PUT /books/:id
   def update
     @book = Book.find(params[:id])
     respond_to do |format|
@@ -51,7 +52,7 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /bookracks/:id/books/:id
+  # DELETE /books/:id
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -66,7 +67,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:name, :author, :category, :memo)
+    params.require(:book).permit(:name, :author, :category, :memo, :bookrack_id)
   end
 end
 

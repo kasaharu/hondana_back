@@ -9,14 +9,14 @@ Rails.application.routes.draw do
 
   get    'top'                          => 'bookracks#top' , as: :top_bookrack
 
-  get    'bookracks/:id/books'          => 'books#index'   , as: :books
-  post   'bookracks/:id/books'          => 'books#create'
-  get    'bookracks/:id/books/new'      => 'books#new'     , as: :new_book
-  get    'bookracks/:id/books/:id/edit' => 'books#edit'    , as: :edit_book
-  get    'bookracks/:id/books/:id'      => 'books#show'    , as: :book
-  patch  'bookracks/:id/books/:id'      => 'books#update'
-  put    'bookracks/:id/books/:id'      => 'books#update'
-  delete 'bookracks/:id/books/:id'      => 'books#destroy'
+  get    'books'          => 'books#index'   , as: :books
+  post   'books'          => 'books#create'
+  get    'books/new'      => 'books#new'     , as: :new_book
+  get    'books/:id/edit' => 'books#edit'    , as: :edit_book
+  get    'books/:id'      => 'books#show'    , as: :book
+  patch  'books/:id'      => 'books#update'
+  put    'books/:id'      => 'books#update'
+  delete 'books/:id'      => 'books#destroy'
 
 
   root to: "bookracks#top"
