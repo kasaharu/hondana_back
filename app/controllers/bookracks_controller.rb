@@ -4,13 +4,12 @@ class BookracksController < ApplicationController
 
   # GET /bookracks/top
   def top
-    user_id = current_user.id
-    @user = User.find(user_id)
+    @user = User.find(current_user.id)
   end
 
   # GET /bookracks
   def index
-    @bookracks = Bookrack.all
+    @bookracks = Bookrack.where(:user_id => current_user.id).all
   end
 
   # GET /bookracks/:id

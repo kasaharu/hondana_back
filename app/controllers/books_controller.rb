@@ -4,8 +4,12 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books     = Book.all
-    @bookracks = Bookrack.all
+    @books     = []
+    @bookracks = Bookrack.where(:user_id => current_user.id).all
+    @bookracks.each do |bookrack|
+      @books << Book.where(:bookrack_id => bookrack.id).all
+    end
+    @books = @books.flatten
   end
 
   # GET /books/:id
